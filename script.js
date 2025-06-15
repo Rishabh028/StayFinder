@@ -8,13 +8,13 @@ const properties = [
         nights: 1,
         rating: 4.59,
         reviews: 1628,
-        image: "images/property1.jpg",
+        image: "stayfinder/images/property1.jpg",
         images: [
-            "images/property1.jpg",
-            "images/property1-1.jpg",
-            "images/property1-2.jpg",
-            "images/property1-3.jpg",
-            "images/property1-4.jpg"
+            "stayfinder/images/property1.jpg",
+            "stayfinder/images/property1-1.jpg",
+            "stayfinder/images/property1-2.jpg",
+            "stayfinder/images/property1-3.jpg",
+            "stayfinder/images/property1-4.jpg"
         ],
         isFavorite: true,
         type: "Entire apartment",
@@ -40,13 +40,13 @@ const properties = [
         nights: 1,
         rating: 4.72,
         reviews: 874,
-        image: "images/property2.jpg",
+        image: "stayfinder/images/property2.jpg",
         images: [
-            "images/property2.jpg",
-            "images/property2-1.jpg",
-            "images/property2-2.jpg",
-            "images/property2-3.jpg",
-            "images/property2-4.jpg"
+            "stayfinder/images/property2.jpg",
+            "stayfinder/images/property2-1.jpg",
+            "stayfinder/images/property2-2.jpg",
+            "stayfinder/images/property2-3.jpg",
+            "stayfinder/images/property2-4.jpg"
         ],
         isFavorite: false,
         type: "Entire apartment",
@@ -72,13 +72,13 @@ const properties = [
         nights: 1,
         rating: 4.59,
         reviews: 1833,
-        image: "images/property3.jpg",
+        image: "stayfinder/images/property3.jpg",
         images: [
-            "images/property3.jpg",
-            "images/property3-1.jpg",
-            "images/property3-2.jpg",
-            "images/property3-3.jpg",
-            "images/property3-4.jpg"
+            "stayfinder/images/property3.jpg",
+            "stayfinder/images/property3-1.jpg",
+            "stayfinder/images/property3-2.jpg",
+            "stayfinder/images/property3-3.jpg",
+            "stayfinder/images/property3-4.jpg"
         ],
         isFavorite: true,
         type: "Entire home",
@@ -104,13 +104,13 @@ const properties = [
         nights: 2,
         rating: 4.73,
         reviews: 568,
-        image: "images/property4.jpg",
+        image: "stayfinder/images/property4.jpg",
         images: [
-            "images/property4.jpg",
-            "images/property4-1.jpg",
-            "images/property4-2.jpg",
-            "images/property4-3.jpg",
-            "images/property4-4.jpg"
+            "stayfinder/images/property4.jpg",
+            "stayfinder/images/property4-1.jpg",
+            "stayfinder/images/property4-2.jpg",
+            "stayfinder/images/property4-3.jpg",
+            "stayfinder/images/property4-4.jpg"
         ],
         isFavorite: false,
         type: "Entire villa",
@@ -136,13 +136,13 @@ const properties = [
         nights: 1,
         rating: 4.55,
         reviews: 754,
-        image: "images/property5.jpg",
+        image: "stayfinder/images/property5.jpg",
         images: [
-            "images/property5.jpg",
-            "images/property5-1.jpg",
-            "images/property5-2.jpg",
-            "images/property5-3.jpg",
-            "images/property5-4.jpg"
+            "stayfinder/images/property5.jpg",
+            "stayfinder/images/property5-1.jpg",
+            "stayfinder/images/property5-2.jpg",
+            "stayfinder/images/property5-3.jpg",
+            "stayfinder/images/property5-4.jpg"
         ],
         isFavorite: true,
         type: "Entire studio",
@@ -168,13 +168,13 @@ const properties = [
         nights: 1,
         rating: 4.73,
         reviews: 1262,
-        image: "images/property6.jpg",
+        image: "stayfinder/images/property6.jpg",
         images: [
-            "images/property6.jpg",
-            "images/property6-1.jpg",
-            "images/property6-2.jpg",
-            "images/property6-3.jpg",
-            "images/property6-4.jpg"
+            "stayfinder/images/property6.jpg",
+            "stayfinder/images/property6-1.jpg",
+            "stayfinder/images/property6-2.jpg",
+            "stayfinder/images/property6-3.jpg",
+            "stayfinder/images/property6-4.jpg"
         ],
         isFavorite: false,
         type: "Entire penthouse",
@@ -200,13 +200,13 @@ const properties = [
         nights: 1,
         rating: 4.73,
         reviews: 748,
-        image: "images/property7.jpg",
+        image: "stayfinder/images/property7.jpg",
         images: [
-            "images/property7.jpg",
-            "images/property7-1.jpg",
-            "images/property7-2.jpg",
-            "images/property7-3.jpg",
-            "images/property7-4.jpg"
+            "stayfinder/images/property7.jpg",
+            "stayfinder/images/property7-1.jpg",
+            "stayfinder/images/property7-2.jpg",
+            "stayfinder/images/property7-3.jpg",
+            "stayfinder/images/property7-4.jpg"
         ],
         isFavorite: false,
         type: "Entire apartment",
@@ -232,13 +232,13 @@ const properties = [
         nights: 2,
         rating: 4.59,
         reviews: 128,
-        image: "images/property8.jpg",
+        image: "stayfinder/images/property8.jpg",
         images: [
-            "images/property8.jpg",
-            "images/property8-1.jpg",
-            "images/property8-2.jpg",
-            "images/property8-3.jpg",
-            "images/property8-4.jpg"
+            "stayfinder/images/property8.jpg",
+            "stayfinder/images/property8-1.jpg",
+            "stayfinder/images/property8-2.jpg",
+            "stayfinder/images/property8-3.jpg",
+            "stayfinder/images/property8-4.jpg"
         ],
         isFavorite: true,
         type: "Entire home",
