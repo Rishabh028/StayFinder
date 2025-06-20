@@ -25,16 +25,13 @@ It features a beautiful UI, interactive map, user authentication, favorites, and
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](images/property1.jpg)
+![Home Page](stayfinder/images/homepage.png)
 
 ### Property Details & Booking
-![Property Modal](images/property1-1.jpg)
+![Property Modal](stayfinder/images/details.png)
 
-### Currency & Language Modal
-![Currency Modal](images/property2-1.jpg)
-
-### Dark Mode
-![Dark Mode](images/property3-1.jpg)
+### Light Mode
+![Light Mode](stayfinder/images/lightmode.png)
 
 ---
 
