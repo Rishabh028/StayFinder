@@ -129,7 +129,7 @@ This project is licensed under the MIT License.
 ## 💡 Author
 
 **Rishabh Rajak**  
-[GitHub](https://github.com/Rishabh028) | [LinkedIn](https://www.linkedin.com/in/rishabh-rajak/)
+[GitHub](https://github.com/Rishabh028) | [LinkedIn](https://www.linkedin.com/in/rishabh-rajak-621318316/)
 
 ---
 
