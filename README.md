@@ -1,6 +1,6 @@
 # StayFinder 🏠
 
-![StayFinder Banner](images/logo.png)
+![StayFinder Banner](stayfinder/images/logo.png)
 
 **StayFinder** is a modern, stylish Airbnb-inspired vacation rental web app for discovering and booking unique stays in North 24 Parganas and beyond.  
 It features a beautiful UI, interactive map, user authentication, favorites, and a seamless booking experience.
