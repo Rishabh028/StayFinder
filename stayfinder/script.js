@@ -8,16 +8,16 @@ const properties = [
         nights: 1,
         rating: 4.59,
         reviews: 1628,
-        image: "stayfinder/images/property1.jpg",
+        image: "images/property1.jpg",
         images: [
-            "stayfinder/images/property1.jpg",
-            "stayfinder/images/property1-1.jpg",
-            "stayfinder/images/property1-2.jpg",
-            "stayfinder/images/property1-3.jpg",
-            "stayfinder/images/property1-4.jpg"
+            "images/property1.jpg",
+            "images/property1-1.jpg",
+            "images/property1-2.jpg",
+            "images/property1-3.jpg",
+            "images/property1-4.jpg"
         ],
         isFavorite: true,
-        type: "Entire apartment",
+        type: "Ratings",
         location: "Park Street Area, Kolkata",
         description: "This stylish apartment in the heart of Kolkata offers modern amenities and breathtaking city views. Perfect for couples or small families looking to explore the cultural capital of India.",
         host: "Amit",
@@ -40,16 +40,16 @@ const properties = [
         nights: 1,
         rating: 4.72,
         reviews: 874,
-        image: "stayfinder/images/property2.jpg",
+        image: "images/property2.jpg",
         images: [
-            "stayfinder/images/property2.jpg",
-            "stayfinder/images/property2-1.jpg",
-            "stayfinder/images/property2-2.jpg",
-            "stayfinder/images/property2-3.jpg",
-            "stayfinder/images/property2-4.jpg"
+            "images/property2.jpg",
+            "images/property2-1.jpg",
+            "images/property2-2.jpg",
+            "images/property2-3.jpg",
+            "images/property2-4.jpg"
         ],
         isFavorite: false,
-        type: "Entire apartment",
+        type: "Ratings",
         location: "New Town, Kolkata",
         description: "Contemporary flat with all modern conveniences in the developing New Town area. Close to business districts and shopping centers.",
         host: "Manoj",
@@ -72,16 +72,16 @@ const properties = [
         nights: 1,
         rating: 4.59,
         reviews: 1833,
-        image: "stayfinder/images/property3.jpg",
+        image: "images/property3.jpg",
         images: [
-            "stayfinder/images/property3.jpg",
-            "stayfinder/images/property3-1.jpg",
-            "stayfinder/images/property3-2.jpg",
-            "stayfinder/images/property3-3.jpg",
-            "stayfinder/images/property3-4.jpg"
+            "images/property3.jpg",
+            "images/property3-1.jpg",
+            "images/property3-2.jpg",
+            "images/property3-3.jpg",
+            "images/property3-4.jpg"
         ],
         isFavorite: true,
-        type: "Entire home",
+        type: "Ratings",
         location: "North Kolkata",
         description: "Experience traditional Bengali culture in this beautifully restored heritage home. Features antique furniture and modern amenities.",
         host: "Hardik",
@@ -104,16 +104,16 @@ const properties = [
         nights: 2,
         rating: 4.73,
         reviews: 568,
-        image: "stayfinder/images/property4.jpg",
+        image: "images/property4.jpg",
         images: [
-            "stayfinder/images/property4.jpg",
-            "stayfinder/images/property4-1.jpg",
-            "stayfinder/images/property4-2.jpg",
-            "stayfinder/images/property4-3.jpg",
-            "stayfinder/images/property4-4.jpg"
+            "images/property4.jpg",
+            "images/property4-1.jpg",
+            "images/property4-2.jpg",
+            "images/property4-3.jpg",
+            "images/property4-4.jpg"
         ],
         isFavorite: false,
-        type: "Entire villa",
+        type: "Ratings",
         location: "Barrackpore",
         description: "Beautiful villa with private garden and river view. Perfect for those seeking peace and tranquility away from the city hustle.",
         host: "Zaid",
@@ -136,16 +136,16 @@ const properties = [
         nights: 1,
         rating: 4.55,
         reviews: 754,
-        image: "stayfinder/images/property5.jpg",
+        image: "images/property5.jpg",
         images: [
-            "stayfinder/images/property5.jpg",
-            "stayfinder/images/property5-1.jpg",
-            "stayfinder/images/property5-2.jpg",
-            "stayfinder/images/property5-3.jpg",
-            "stayfinder/images/property5-4.jpg"
+            "images/property5.jpg",
+            "images/property5-1.jpg",
+            "images/property5-2.jpg",
+            "images/property5-3.jpg",
+            "images/property5-4.jpg"
         ],
         isFavorite: true,
-        type: "Entire studio",
+        type: "Ratings",
         location: "Salt Lake City",
         description: "Compact and efficient studio apartment in the well-planned Salt Lake area. Ideal for solo travelers or couples.",
         host: "Amit",
@@ -168,16 +168,16 @@ const properties = [
         nights: 1,
         rating: 4.73,
         reviews: 1262,
-        image: "stayfinder/images/property6.jpg",
+        image: "images/property6.jpg",
         images: [
-            "stayfinder/images/property6.jpg",
-            "stayfinder/images/property6-1.jpg",
-            "stayfinder/images/property6-2.jpg",
-            "stayfinder/images/property6-3.jpg",
-            "stayfinder/images/property6-4.jpg"
+            "images/property6.jpg",
+            "images/property6-1.jpg",
+            "images/property6-2.jpg",
+            "images/property6-3.jpg",
+            "images/property6-4.jpg"
         ],
         isFavorite: false,
-        type: "Entire penthouse",
+        type: "Ratings",
         location: "Howrah",
         description: "Stunning penthouse with panoramic views of the Hooghly River. Features modern decor and high-end appliances.",
         host: "Aman",
@@ -200,16 +200,16 @@ const properties = [
         nights: 1,
         rating: 4.73,
         reviews: 748,
-        image: "stayfinder/images/property7.jpg",
+        image: "images/property7.jpg",
         images: [
-            "stayfinder/images/property7.jpg",
-            "stayfinder/images/property7-1.jpg",
-            "stayfinder/images/property7-2.jpg",
-            "stayfinder/images/property7-3.jpg",
-            "stayfinder/images/property7-4.jpg"
+            "images/property7.jpg",
+            "images/property7-1.jpg",
+            "images/property7-2.jpg",
+            "images/property7-3.jpg",
+            "images/property7-4.jpg"
         ],
         isFavorite: false,
-        type: "Entire apartment",
+        type: "Ratings",
         location: "Near Airport",
         description: "Conveniently located apartment perfect for business travelers. Just 10 minutes from the airport with fast wifi and workspace.",
         host: "Ramesh",
@@ -232,16 +232,16 @@ const properties = [
         nights: 2,
         rating: 4.59,
         reviews: 128,
-        image: "stayfinder/images/property8.jpg",
+        image: "images/property8.jpg",
         images: [
-            "stayfinder/images/property8.jpg",
-            "stayfinder/images/property8-1.jpg",
-            "stayfinder/images/property8-2.jpg",
-            "stayfinder/images/property8-3.jpg",
-            "stayfinder/images/property8-4.jpg"
+            "images/property8.jpg",
+            "images/property8-1.jpg",
+            "images/property8-2.jpg",
+            "images/property8-3.jpg",
+            "images/property8-4.jpg"
         ],
         isFavorite: true,
-        type: "Entire home",
+        type: "Ratings",
         location: "Rajarhat",
         description: "Spacious family home in the developing Rajarhat area. Features large living spaces and outdoor area for kids to play.",
         host: "Ajith",
@@ -271,7 +271,7 @@ let users = JSON.parse(localStorage.getItem('users')) || [
 ];
 
 // Search locations
-const locations = ["Kolkata", "New Town", "Salt Lake", "Howrah", "Barrackpore", "Rajarhat", "North 24 Parganas"];
+const locations = ["Kolkata", "New Town", "Salt Lake", "Howrah", "Barrackpore", "Rajarhat", "North 24 Parganas", "Anywhere"];
 
 // DOM Elements
 const authModal = document.getElementById('auth-modal');
@@ -644,7 +644,6 @@ function handleLogin(e) {
     const loginBtn = e.target.querySelector('button[type="submit"]');
     loginBtn.classList.add('btn-loading');
     loginBtn.disabled = true;
-    
     setTimeout(() => {
         const user = users.find(u => u.email === email && u.password === password);
         
@@ -881,7 +880,41 @@ function setupEventListeners() {
             showAuthModal(tabName);
         });
     });
-    
+    // Airbnb-style animated search bar active state
+const searchBar = document.getElementById('search-bar');
+const searchOptions = document.querySelectorAll('.search-option');
+searchOptions.forEach(option => {
+    option.addEventListener('focus', () => {
+        searchBar.classList.add('active');
+        option.classList.add('active');
+    });
+    option.addEventListener('blur', () => {
+        option.classList.remove('active');
+        // Remove bar active if nothing focused (timeout for dropdown click)
+        setTimeout(() => {
+            if (![...searchOptions].some(opt => opt === document.activeElement)) {
+                searchBar.classList.remove('active');
+            }
+        }, 120);
+    });
+    option.addEventListener('mouseenter', () => {
+        option.classList.add('active');
+        searchBar.classList.add('active');
+    });
+    option.addEventListener('mouseleave', () => {
+        option.classList.remove('active');
+        // Remove bar active if not focused
+        if (![...searchOptions].some(opt => opt === document.activeElement)) {
+            searchBar.classList.remove('active');
+        }
+    });
+});
+document.addEventListener('click', (e) => {
+    if (!searchBar.contains(e.target)) {
+        searchBar.classList.remove('active');
+        searchOptions.forEach(opt => opt.classList.remove('active'));
+    }
+});
     // Close modals when clicking outside
     window.addEventListener('click', (e) => {
         if (e.target === authModal) closeAuthModal();
@@ -897,5 +930,202 @@ function setupEventListeners() {
     });
 }
 
+// Setup date and guests overlays
+function setupDateAndGuestsOverlays() {
+    // Elements
+    const dateSearch = document.getElementById('date-search');
+    const dateSearchOut = document.getElementById('date-search-out');
+    const datePickerOverlay = document.getElementById('date-picker-overlay');
+    const closeDatePicker = document.getElementById('close-date-picker');
+    const checkinValue = document.getElementById('checkin-value');
+    const checkoutValue = document.getElementById('checkout-value');
+    const datePickerCalendars = document.getElementById('date-picker-calendars');
+
+    const guestsSearch = document.getElementById('guests-search');
+    const guestsOverlay = document.getElementById('guests-overlay');
+    const closeGuestsPicker = document.getElementById('close-guests-picker');
+    const guestsValue = document.getElementById('guests-value');
+    const guestsDoneBtn = document.getElementById('guests-done-btn');
+
+    // Guests state
+    let guests = { adults: 1, children: 0, infants: 0 };
+
+    // Date state
+    let checkIn = null, checkOut = null;
+
+    // --- Date Picker Logic ---
+    function renderCalendars() {
+        // Show two months: current and next
+        const today = new Date();
+        const months = [
+            { year: today.getFullYear(), month: today.getMonth() },
+            { year: today.getMonth() === 11 ? today.getFullYear() + 1 : today.getFullYear(), month: (today.getMonth() + 1) % 12 }
+        ];
+        datePickerCalendars.innerHTML = months.map(m => calendarHTML(m.year, m.month)).join('');
+        // Add click handlers
+        datePickerCalendars.querySelectorAll('td[data-date]').forEach(td => {
+            td.addEventListener('click', () => {
+                const date = new Date(td.dataset.date);
+                if (!checkIn || (checkIn && checkOut)) {
+                    checkIn = date;
+                    checkOut = null;
+                } else if (date > checkIn) {
+                    checkOut = date;
+                } else {
+                    checkIn = date;
+                    checkOut = null;
+                }
+                updateDateSelection();
+                renderCalendars();
+            });
+        });
+    }
+    function calendarHTML(year, month) {
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        let html = `<div class="calendar"><div style="text-align:center;font-weight:600;margin-bottom:4px;">${firstDay.toLocaleString('default', { month: 'long' })} ${year}</div><table><thead><tr>`;
+        ['S','M','T','W','T','F','S'].forEach(d => html += `<th>${d}</th>`);
+        html += '</tr></thead><tbody><tr>';
+        for (let i = 0; i < firstDay.getDay(); i++) html += '<td></td>';
+        for (let d = 1; d <= lastDay.getDate(); d++) {
+            const date = new Date(year, month, d);
+            let cls = '';
+            if (checkIn && date.toDateString() === checkIn.toDateString()) cls = 'selected';
+            else if (checkIn && checkOut && date > checkIn && date < checkOut) cls = 'in-range';
+            else if (checkOut && date.toDateString() === checkOut.toDateString()) cls = 'selected';
+            if (date < new Date(new Date().setHours(0,0,0,0))) cls += ' disabled';
+            html += `<td data-date="${date.toISOString()}" class="${cls.trim()}">${d}</td>`;
+            if ((date.getDay() + 1) % 7 === 0) html += '</tr><tr>';
+        }
+        html += '</tr></tbody></table></div>';
+        return html;
+    }
+    function updateDateSelection() {
+        checkinValue.textContent = checkIn ? checkIn.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : 'Add dates';
+        checkoutValue.textContent = checkOut ? checkOut.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : 'Add dates';
+    }
+
+    // Show/hide overlay
+    function showDatePicker() {
+        datePickerOverlay.style.display = 'block';
+        renderCalendars();
+    }
+    function hideDatePicker() {
+        datePickerOverlay.style.display = 'none';
+    }
+    dateSearch.addEventListener('click', showDatePicker);
+    dateSearchOut.addEventListener('click', showDatePicker);
+    closeDatePicker.addEventListener('click', hideDatePicker);
+    document.addEventListener('mousedown', (e) => {
+        if (
+            datePickerOverlay.style.display === 'block' &&
+            !datePickerOverlay.contains(e.target) &&
+            !dateSearch.contains(e.target) &&
+            !dateSearchOut.contains(e.target)
+        ) {
+            hideDatePicker();
+        }
+    });
+
+    // --- Guests Picker Logic ---
+    function updateGuestsValue() {
+        let total = guests.adults + guests.children;
+        let txt = total + ' guest' + (total > 1 ? 's' : '');
+        if (guests.infants > 0) txt += `, ${guests.infants} infant${guests.infants > 1 ? 's' : ''}`;
+        guestsValue.textContent = total === 0 ? 'Add guests' : txt;
+    }
+    function showGuestsOverlay() {
+        guestsOverlay.style.display = 'block';
+    }
+    function hideGuestsOverlay() {
+        guestsOverlay.style.display = 'none';
+    }
+    guestsSearch.addEventListener('click', showGuestsOverlay);
+    closeGuestsPicker.addEventListener('click', hideGuestsOverlay);
+    guestsDoneBtn.addEventListener('click', hideGuestsOverlay);
+    document.addEventListener('mousedown', (e) => {
+        if (
+            guestsOverlay.style.display === 'block' &&
+            !guestsOverlay.contains(e.target) &&
+            !guestsSearch.contains(e.target)
+        ) {
+            hideGuestsOverlay();
+        }
+    });
+
+    // Guests controls
+    function updateGuestsBtns() {
+        document.getElementById('adults-minus').disabled = guests.adults <= 1;
+        document.getElementById('children-minus').disabled = guests.children <= 0;
+        document.getElementById('infants-minus').disabled = guests.infants <= 0;
+        document.getElementById('adults-count').textContent = guests.adults;
+        document.getElementById('children-count').textContent = guests.children;
+        document.getElementById('infants-count').textContent = guests.infants;
+    }
+    document.getElementById('adults-plus').onclick = () => { guests.adults++; updateGuestsBtns(); updateGuestsValue(); };
+    document.getElementById('adults-minus').onclick = () => { if (guests.adults > 1) guests.adults--; updateGuestsBtns(); updateGuestsValue(); };
+    document.getElementById('children-plus').onclick = () => { guests.children++; updateGuestsBtns(); updateGuestsValue(); };
+    document.getElementById('children-minus').onclick = () => { if (guests.children > 0) guests.children--; updateGuestsBtns(); updateGuestsValue(); };
+    document.getElementById('infants-plus').onclick = () => { guests.infants++; updateGuestsBtns(); updateGuestsValue(); };
+    document.getElementById('infants-minus').onclick = () => { if (guests.infants > 0) guests.infants--; updateGuestsBtns(); updateGuestsValue(); };
+
+    // Initial
+    updateGuestsBtns();
+    updateGuestsValue();
+    updateDateSelection();
+}
+
+// Setup footer modals
+function setupFooterModals() {
+    // Language modal
+    const languageBtn = document.getElementById('language-btn');
+    const languageModal = document.getElementById('language-modal');
+    const closeLanguageModal = document.getElementById('close-language-modal');
+    languageBtn.onclick = () => languageModal.style.display = 'flex';
+    closeLanguageModal.onclick = () => languageModal.style.display = 'none';
+
+    // Currency modal
+    const currencyBtn = document.getElementById('currency-btn');
+    const currencyModal = document.getElementById('currency-modal');
+    const closeCurrencyModal = document.getElementById('close-currency-modal');
+    currencyBtn.onclick = () => currencyModal.style.display = 'flex';
+    closeCurrencyModal.onclick = () => currencyModal.style.display = 'none';
+
+    // Close modals on outside click
+    window.addEventListener('mousedown', function(e) {
+        if (languageModal.style.display === 'flex' && !languageModal.querySelector('.custom-modal-content').contains(e.target) && e.target !== languageBtn) {
+            languageModal.style.display = 'none';
+        }
+        if (currencyModal.style.display === 'flex' && !currencyModal.querySelector('.custom-modal-content').contains(e.target) && e.target !== currencyBtn) {
+            currencyModal.style.display = 'none';
+        }
+    });
+
+    // Option selection (visual only)
+    document.querySelectorAll('#language-modal .modal-option').forEach(btn => {
+        btn.onclick = function() {
+            document.querySelectorAll('#language-modal .modal-option').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            languageBtn.innerHTML = `<i class="fas fa-globe"></i> ${this.textContent.trim()}`;
+            languageModal.style.display = 'none';
+        };
+    });
+    document.querySelectorAll('#currency-modal .modal-option').forEach(btn => {
+        btn.onclick = function() {
+            document.querySelectorAll('#currency-modal .modal-option').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            const main = this.childNodes[0].nodeValue.trim();
+            const sub = this.querySelector('.option-sub')?.textContent || '';
+            currencyBtn.innerHTML = `${sub.split('–')[1]?.trim() || '₹'} ${main}`;
+            currencyModal.style.display = 'none';
+        };
+    });
+}
+
 // ========== INITIALIZE APP ==========
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof init === 'function') init();
+    if (typeof setupAirbnbSearchBar === 'function') setupAirbnbSearchBar();
+    if (typeof setupDateAndGuestsOverlays === 'function') setupDateAndGuestsOverlays();
+    setupFooterModals();
+});
