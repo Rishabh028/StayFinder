@@ -8,10 +8,10 @@ let currentBackgroundIndex = 0;
 let isSearchModalOpen = false;
 // Define your background images (videos removed as per request)
 const backgrounds = [
-    { type: 'image', src: 'stayfinder/images/bg2.png', thumbnail: 'images/bg2.png' },
-    { type: 'image', src: 'stayfinder/images/bg1.png', thumbnail: 'images/bg1.png' },
-    { type: 'image', src: 'stayfinder/images/property1.jpg', thumbnail: 'images/property1.jpg' },
-    { type: 'image', src: 'stayfinder/images/property6-4.jpg', thumbnail: 'images/property6-4.jpg' },
+    { type: 'image', src: 'stayfinder/images/bg2.png', thumbnail: 'stayfinder/images/bg2.png' },
+    { type: 'image', src: 'stayfinder/images/bg1.png', thumbnail: 'stayfinder/images/bg1.png' },
+    { type: 'image', src: 'stayfinder/images/property1.jpg', thumbnail: 'stayfinder/images/property1.jpg' },
+    { type: 'image', src: 'stayfinder/images/property6-4.jpg', thumbnail: 'stayfinder/images/property6-4.jpg' },
     // Add more image paths here if you have them
 ];
 
