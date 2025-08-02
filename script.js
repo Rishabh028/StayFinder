@@ -977,7 +977,7 @@ async function handleLogin(e) {
     const password = document.getElementById('login-password').value;
 
     try {
-        const res = await fetch('https://stayfinder-3jlf.onrender.com/api/auth/login', {
+        const res = await fetch('https://stayfinder-1-cfu4.onrender.com/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -1006,7 +1006,7 @@ async function handleRegister(e) {
     const password = document.getElementById('register-password').value;
 
     try {
-        const res = await fetch('https://stayfinder-3jlf.onrender.com/api/auth/register', {
+        const res = await fetch('https://stayfinder-1-cfu4.onrender.com/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, password, role: "Student" })
