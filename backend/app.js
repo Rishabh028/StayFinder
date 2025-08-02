@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'https://zippy-gumdrop-c1bd83.netlify.app/' })); // Enable CORS for all routes
+app.use(cors({ origin: ['https://zippy-gumdrop-c1bd83.netlify.app', 'http://127.0.0.1:5500'] })); // Enable CORS for all routes
 app.use(express.json()); // Body parser for JSON requests
 
 // Database Connection
