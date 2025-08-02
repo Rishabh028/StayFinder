@@ -1,4 +1,3 @@
-HEAD 
 // === GLOBAL STATE ===
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 let users = JSON.parse(localStorage.getItem('users')) || [];
