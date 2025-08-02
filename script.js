@@ -1,3 +1,4 @@
+HEAD 
 // === GLOBAL STATE ===
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 let users = JSON.parse(localStorage.getItem('users')) || [];
@@ -8,10 +9,10 @@ let currentBackgroundIndex = 0;
 let isSearchModalOpen = false;
 // Define your background images (videos removed as per request)
 const backgrounds = [
-    { type: 'image', src: 'images/bg2.png', thumbnail: 'images/bg2.png' },
-    { type: 'image', src: 'images/bg1.png', thumbnail: 'images/bg1.png' },
-    { type: 'image', src: 'images/property1.jpg', thumbnail: 'images/property1.jpg' },
-    { type: 'image', src: 'images/property6-4.jpg', thumbnail: 'images/property6-4.jpg' },
+    { type: 'image', src: 'stayfinder/images/bg2.png', thumbnail: 'stayfinder/images/bg2.png' },
+    { type: 'image', src: 'stayfinder/images/bg1.png', thumbnail: 'stayfinder/images/bg1.png' },
+    { type: 'image', src: 'stayfinder/images/property1.jpg', thumbnail: 'stayfinder/images/property1.jpg' },
+    { type: 'image', src: 'stayfinder/images/property6-4.jpg', thumbnail: 'stayfinder/images/property6-4.jpg' },
     // Add more image paths here if you have them
 ];
 
@@ -36,11 +37,11 @@ const properties = [
         rating: 4.59,
         reviews: 1628,
         images: [
-            "images/property1.jpg",
-            "images/property1-1.jpg",
-            "images/property1-2.jpg",
-            "images/property1-3.jpg",
-            "images/property1-4.jpg"
+            "stayfinder/images/property1.jpg",
+            "stayfinder/images/property1-1.jpg",
+            "stayfinder/images/property1-2.jpg",
+            "stayfinder/images/property1-3.jpg",
+            "stayfinder/images/property1-4.jpg"
         ],
         isFavorite: false,
         description: "This stylish apartment in the heart of Kolkata offers modern amenities and breathtaking city views. Perfect for business travelers and tourists alike.",
@@ -77,11 +78,11 @@ const properties = [
         rating: 4.72,
         reviews: 874,
         images: [
-            "images/property2.jpg",
-            "images/property2-1.jpg",
-            "images/property2-2.jpg",
-            "images/property2-3.jpg",
-            "images/property2-4.jpg"
+            "stayfinder/images/property2.jpg",
+            "stayfinder/images/property2-1.jpg",
+            "stayfinder/images/property2-2.jpg",
+            "stayfinder/images/property2-3.jpg",
+            "stayfinder/images/property2-4.jpg"
         ],
         isFavorite: false,
         description: "Contemporary flat with all modern conveniences in the developing New Town area. Excellent connectivity and peaceful environment.",
@@ -115,11 +116,11 @@ const properties = [
         rating: 4.53,
         reviews: 1833,
         images: [
-            "images/property3.jpg",
-            "images/property3-1.jpg",
-            "images/property3-2.jpg",
-            "images/property3-3.jpg",
-            "images/property3-4.jpg"
+            "stayfinder/images/property3.jpg",
+            "stayfinder/images/property3-1.jpg",
+            "stayfinder/images/property3-2.jpg",
+            "stayfinder/images/property3-3.jpg",
+            "stayfinder/images/property3-4.jpg"
         ],
         isFavorite: false,
         description: "Experience traditional Bengali culture in this beautifully restored heritage home. Rich history meets modern comfort.",
@@ -153,11 +154,11 @@ const properties = [
         rating: 4.73,
         reviews: 568,
         images: [
-            "images/property4.jpg",
-            "images/property4-1.jpg",
-            "images/property4-2.jpg",
-            "images/property4-3.jpg",
-            "images/property4-4.jpg"
+            "stayfinder/images/property4.jpg",
+            "stayfinder/images/property4-1.jpg",
+            "stayfinder/images/property4-2.jpg",
+            "stayfinder/images/property4-3.jpg",
+            "stayfinder/images/property4-4.jpg"
         ],
         isFavorite: false,
         description: "Beautiful villa with private garden and river view. Perfect for families seeking tranquility away from city chaos.",
@@ -191,11 +192,11 @@ const properties = [
         rating: 4.55,
         reviews: 754,
         images: [
-            "images/property5.jpg",
-            "images/property5-1.jpg",
-            "images/property5-2.jpg",
-            "images/property5-3.jpg",
-            "images/property5-4.jpg"
+            "stayfinder/images/property5.jpg",
+            "stayfinder/images/property5-1.jpg",
+            "stayfinder/images/property5-2.jpg",
+            "stayfinder/images/property5-3.jpg",
+            "stayfinder/images/property5-4.jpg"
         ],
         isFavorite: false,
         description: "Compact and efficient studio apartment in the well-planned Salt Lake area. Ideal for solo travelers and couples.",
@@ -229,11 +230,11 @@ const properties = [
         rating: 4.73,
         reviews: 1262,
         images: [
-            "images/property6.jpg",
-            "images/property6-1.jpg",
-            "images/property6-2.jpg",
-            "images/property6-3.jpg",
-            "images/property6-4.jpg"
+            "stayfinder/images/property6.jpg",
+            "stayfinder/images/property6-1.jpg",
+            "stayfinder/images/property6-2.jpg",
+            "stayfinder/images/property6-3.jpg",
+            "stayfinder/images/property6-4.jpg"
         ],
         isFavorite: false,
         description: "Stunning hotel suite with panoramic views of the city. Premium amenities and world-class service.",
@@ -267,11 +268,11 @@ const properties = [
         rating: 4.61,
         reviews: 1965,
         images: [
-            "images/property7.jpg",
-            "images/property7-1.jpg",
-            "images/property7-2.jpg",
-            "images/property7-3.jpg",
-            "images/property7-4.jpg"
+            "stayfinder/images/property7.jpg",
+            "stayfinder/images/property7-1.jpg",
+            "stayfinder/images/property7-2.jpg",
+            "stayfinder/images/property7-3.jpg",
+            "stayfinder/images/property7-4.jpg"
         ],
         isFavorite: false,
         description: "This stylish apartment in the heart of New Town offers modern amenities and breathtaking city views. Perfect for business travelers and tourists alike.",
@@ -308,11 +309,11 @@ const properties = [
         rating: 4.46,
         reviews: 2543,
         images: [
-            "images/property8.jpg",
-            "images/property8-1.jpg",
-            "images/property8-2.jpg",
-            "images/property8-3.jpg",
-            "images/property8-4.jpg"
+            "stayfinder/images/property8.jpg",
+            "stayfinder/images/property8-1.jpg",
+            "stayfinder/images/property8-2.jpg",
+            "stayfinder/images/property8-3.jpg",
+            "stayfinder/images/property8-4.jpg"
         ],
         isFavorite: false,
         description: "This stylish apartment in the heart of Salt Lake offers modern amenities and breathtaking city views. Perfect for business travelers and tourists alike.",
