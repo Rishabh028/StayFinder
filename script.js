@@ -1402,28 +1402,25 @@ async function handleBooking(propertyId) {
 }
 
 async function toggleWishlist(propertyId) {
-    if (!currentUser) {
-        showAuthModal('login');
-        return;
-    }
-
+    // Check if the user is logged in
     const token = localStorage.getItem('token');
     if (!token) {
         showAuthModal('login');
+        showNotification('Please log in to add to your wishlist.', 'error');
         return;
     }
     
     try {
         const res = await fetch(`https://stayfinder-1-cfu4.onrender.com/api/properties/${propertyId}/wishlist`, {
             method: 'POST',
-            // Remove the 'Content-Type' header as there is no body
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         });
 
         const data = await res.json();
-            if (res.ok) {
+        
+        if (res.ok) {
             // Update the local user data with the new wishlist
             currentUser.wishlist = data.wishlist;
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
@@ -1433,6 +1430,10 @@ async function toggleWishlist(propertyId) {
             
             showNotification(data.message, 'success');
 
+        } else if (res.status === 401) {
+            showNotification('Session expired. Please log in again.', 'error');
+            // Force log out
+            logoutUser(); 
         } else {
             showNotification(data.message || 'Failed to update wishlist', 'error');
         }
