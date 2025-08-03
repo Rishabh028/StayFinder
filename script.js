@@ -1,3 +1,4 @@
+HEAD 
 // === GLOBAL STATE ===
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 let users = JSON.parse(localStorage.getItem('users')) || [];
@@ -977,19 +978,20 @@ async function handleLogin(e) {
     const password = document.getElementById('login-password').value;
 
     try {
-        const res = await fetch('https://stayfinder-1-cfu4.onrender.com/api/auth/login', {
+        const res = await fetch('http://localhost:5000/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         });
         const data = await res.json();
         if (res.ok) {
+            // Save token and user info
             localStorage.setItem('token', data.token);
             localStorage.setItem('currentUser', JSON.stringify(data.user));
             closeAuthModal();
             updateUserInterface();
             showNotification('Welcome back!', 'success');
-            showView('homepage');
+            showView('homepage'); // Redirect to homepage after login
         } else {
             showNotification(data.message || 'Login failed', 'error');
         }
@@ -998,7 +1000,6 @@ async function handleLogin(e) {
     }
 }
 
-
 async function handleRegister(e) {
     e.preventDefault();
     const name = document.getElementById('register-name').value;
@@ -1006,10 +1007,10 @@ async function handleRegister(e) {
     const password = document.getElementById('register-password').value;
 
     try {
-        const res = await fetch('https://stayfinder-1-cfu4.onrender.com/api/auth/register', {
+        const res = await fetch('http://localhost:5000/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, password }) // Removed role
+            body: JSON.stringify({ name, email, password, role: "Student" })
         });
         const data = await res.json();
         if (res.ok) {
@@ -1018,7 +1019,7 @@ async function handleRegister(e) {
             closeAuthModal();
             updateUserInterface();
             showNotification('Account created successfully!', 'success');
-            showView('homepage');
+            showView('homepage'); // Redirect to homepage after registration
         } else {
             showNotification(data.message || 'Registration failed', 'error');
         }
@@ -1401,45 +1402,49 @@ async function handleBooking(propertyId) {
     }
 }
 
-async function toggleWishlist(propertyId) {
-    const token = localStorage.getItem('token');
-    if (!token) {
+function toggleWishlist(propertyId) {
+    if (!currentUser) {
         showAuthModal('login');
         return;
     }
     
-    try {
-        const res = await fetch(`https://stayfinder-1-cfu4.onrender.com/api/properties/${propertyId}/wishlist`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
+    // Find the property in the global properties array
+    const property = properties.find(p => p.id === propertyId);
+    if (!property) return; // Should not happen if data-id is correctly set
 
-        const data = await res.json();
-        
-        if (res.ok) {
-            // Update the local user data with the new wishlist
-            currentUser.wishlist = data.wishlist;
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    // Ensure currentUser.wishlist is initialized
+    currentUser.wishlist = currentUser.wishlist || [];
+    
+    // Check if property is currently favorited by the current user
+    const isCurrentlyFavorite = currentUser.wishlist.includes(propertyId);
 
-            const isFavorite = currentUser.wishlist.includes(propertyId.toString());
-            updateWishlistButton(propertyId, isFavorite);
-            
-            showNotification(data.message, 'success');
-
-        } else if (res.status === 401) {
-            showNotification('Session expired. Please log in again.', 'error');
-            // Force log out
-            logoutUser(); 
-        } else {
-            showNotification(data.message || 'Failed to update wishlist', 'error');
-        }
-    } catch (err) {
-        console.error('Wishlist Error:', err);
-        showNotification('Failed to update wishlist due to a server error', 'error');
+    if (isCurrentlyFavorite) {
+        // Remove from wishlist
+        currentUser.wishlist = currentUser.wishlist.filter(id => id !== propertyId);
+        showNotification('Removed from wishlist', 'success');
+    } else {
+        // Add to wishlist
+        currentUser.wishlist.push(propertyId);
+        showNotification('Added to wishlist', 'success');
+    }
+    
+    // Update localStorage
+    const userIndex = users.findIndex(u => u.id === currentUser.id);
+    if (userIndex > -1) {
+        users[userIndex] = currentUser;
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
+    
+    // Update UI
+    updateWishlistButton(propertyId, !isCurrentlyFavorite);
+    
+    // If we're on wishlist view, re-render to reflect changes
+    if (currentView === 'wishlist') {
+        renderWishlist();
     }
 }
+
 
 function updateWishlistButton(propertyId, isFavorite) {
     // Select all wishlist buttons for this property ID (could be on results page or wishlist page)
