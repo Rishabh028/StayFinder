@@ -147,13 +147,14 @@ const addReview = async (req, res) => {
 // @route   POST /api/properties/:id/wishlist
 // @access  Private
 const toggleWishlist = async (req, res) => {
-    const propertyId = req.params.id;
-    const userId = req.user._id; // From auth middleware
+    const propertyId = parseInt(req.params.id); // Parse to integer
+    const userId = req.user._id;
 
     try {
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+        // Find property by its numeric ID field, not _id
+        const property = await Property.findOne({ id: propertyId });
+        if (!property) {
+            return res.status(404).json({ message: 'Property not found' });
         }
 
         const property = await Property.findById(propertyId);
@@ -176,10 +177,10 @@ const toggleWishlist = async (req, res) => {
             await user.save();
             res.json({ message: 'Property added to wishlist', wishlist: user.wishlist });
         }
-    } catch (error) {
+   } catch (error) {
         console.error('Error toggling wishlist:', error.message);
         if (error.name === 'CastError') {
-            return res.status(400).json({ message: 'Invalid property ID or User ID' });
+            return res.status(400).json({ message: 'Invalid property ID' });
         }
         res.status(500).json({ message: 'Server error' });
     }
