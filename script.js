@@ -1401,50 +1401,47 @@ async function handleBooking(propertyId) {
         showNotification('Booking failed due to a server error', 'error');
     }
 }
-
-function toggleWishlist(propertyId) {
+async function toggleWishlist(propertyId) {
     if (!currentUser) {
         showAuthModal('login');
         return;
     }
-    
-    // Find the property in the global properties array
-    const property = properties.find(p => p.id === propertyId);
-    if (!property) return; // Should not happen if data-id is correctly set
 
-    // Ensure currentUser.wishlist is initialized
-    currentUser.wishlist = currentUser.wishlist || [];
-    
-    // Check if property is currently favorited by the current user
-    const isCurrentlyFavorite = currentUser.wishlist.includes(propertyId);
-
-    if (isCurrentlyFavorite) {
-        // Remove from wishlist
-        currentUser.wishlist = currentUser.wishlist.filter(id => id !== propertyId);
-        showNotification('Removed from wishlist', 'success');
-    } else {
-        // Add to wishlist
-        currentUser.wishlist.push(propertyId);
-        showNotification('Added to wishlist', 'success');
+    const token = localStorage.getItem('token');
+    if (!token) {
+        showAuthModal('login');
+        return;
     }
     
-    // Update localStorage
-    const userIndex = users.findIndex(u => u.id === currentUser.id);
-    if (userIndex > -1) {
-        users[userIndex] = currentUser;
-        localStorage.setItem('users', JSON.stringify(users));
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    }
-    
-    // Update UI
-    updateWishlistButton(propertyId, !isCurrentlyFavorite);
-    
-    // If we're on wishlist view, re-render to reflect changes
-    if (currentView === 'wishlist') {
-        renderWishlist();
+    try {
+        const res = await fetch(`https://stayfinder-1-cfu4.onrender.com/api/properties/${propertyId}/wishlist`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            // Update the local user data with the new wishlist
+            currentUser.wishlist = data.wishlist;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+            const isFavorite = currentUser.wishlist.includes(propertyId.toString());
+            updateWishlistButton(propertyId, isFavorite);
+            
+            showNotification(data.message, 'success');
+
+        } else {
+            showNotification(data.message || 'Failed to update wishlist', 'error');
+        }
+    } catch (err) {
+        console.error('Wishlist Error:', err);
+        showNotification('Failed to update wishlist due to a server error', 'error');
     }
 }
-
 
 function updateWishlistButton(propertyId, isFavorite) {
     // Select all wishlist buttons for this property ID (could be on results page or wishlist page)
