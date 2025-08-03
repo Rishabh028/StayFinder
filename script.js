@@ -1,4 +1,3 @@
-HEAD 
 // === GLOBAL STATE ===
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 let users = JSON.parse(localStorage.getItem('users')) || [];
@@ -978,7 +977,7 @@ async function handleLogin(e) {
     const password = document.getElementById('login-password').value;
 
     try {
-        const res = await fetch('http://localhost:5000/api/auth/login', {
+        const res = await fetch('https://stayfinder-1-cfu4.onrender.com/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -1007,7 +1006,7 @@ async function handleRegister(e) {
     const password = document.getElementById('register-password').value;
 
     try {
-        const res = await fetch('http://localhost:5000/api/auth/register', {
+        const res = await fetch('https://stayfinder-1-cfu4.onrender.com/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, password, role: "Student" })
@@ -1312,19 +1311,13 @@ function closePropertyModal() {
     currentPropertyId = null;
 }
 
-async function handleBooking(propertyId) {
+function handleBooking(propertyId) {
     if (!currentUser) {
         showAuthModal('login');
-        localStorage.setItem('redirectAfterLogin', 'property-' + propertyId);
+        localStorage.setItem('redirectAfterLogin', 'property-' + propertyId); // Redirect back to property after login
         return;
     }
     
-    const token = localStorage.getItem('token');
-    if (!token) {
-        showAuthModal('login');
-        return;
-    }
-
     const property = properties.find(p => p.id === propertyId);
     const checkin = document.getElementById('modal-checkin').value;
     const checkout = document.getElementById('modal-checkout').value;
@@ -1337,111 +1330,112 @@ async function handleBooking(propertyId) {
 
     const checkinDate = new Date(checkin);
     const checkoutDate = new Date(checkout);
-    const diffTime = Math.abs(checkoutDate - checkinDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    let diffDays = Math.ceil(Math.abs(checkoutDate - checkinDate) / (1000 * 60 * 60 * 24)); 
     
-    if (diffDays === 0) {
-        showNotification('Check-out date must be after check-in date', 'error');
-        return;
+    if (diffDays === 0) { // If checkin and checkout are same day, set to 1 night
+        diffDays = 1;
     }
 
-    const nights = diffDays;
-    const totalPrice = (property.price / property.nights * nights); // Correctly calculate price
+    const totalPrice = (property.basePrice * diffDays) + property.fees.cleaning + property.fees.service;
 
-    try {
-        const res = await fetch('https://stayfinder-1-cfu4.onrender.com/api/bookings', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}` // Pass the user's token
-            },
-            body: JSON.stringify({ propertyId, checkin, checkout, guests, nights, totalPrice })
+    const booking = {
+        id: Date.now(),
+        propertyId: property.id,
+        propertyTitle: property.title,
+        propertyImage: property.images[0],
+        checkin,
+        checkout,
+        guests,
+        nights: diffDays,
+        totalPrice: totalPrice,
+        bookingDate: new Date().toISOString(),
+        status: 'confirmed'
+    };
+    
+    // Add to user's bookings
+    currentUser.bookings = currentUser.bookings || [];
+    currentUser.bookings.unshift(booking);
+    
+    // Update localStorage
+    const userIndex = users.findIndex(u => u.id === currentUser.id);
+    if (userIndex > -1) {
+        users[userIndex] = currentUser;
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
+    
+    closePropertyModal();
+    showNotification(`Booking for ${property.title} confirmed!`, 'success');
+    
+    // Show booking confirmation (you could create a modal for this)
+    setTimeout(() => {
+        // Using a custom message box instead of confirm()
+        const confirmBox = document.createElement('div');
+        confirmBox.className = 'custom-confirm-box';
+        confirmBox.innerHTML = `
+            <div class="custom-confirm-content">
+                <p>Would you like to view your bookings?</p>
+                <div class="custom-confirm-buttons">
+                    <button id="confirm-yes" class="auth-submit">Yes</button>
+                    <button id="confirm-no" class="auth-submit" style="background-color: var(--danger-color);">No</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(confirmBox);
+
+        document.getElementById('confirm-yes').addEventListener('click', () => {
+            document.body.removeChild(confirmBox);
+            showView('profile');
         });
-        
-        const data = await res.json();
-        
-        if (res.ok) {
-            // Update the local user data with the new booking
-            currentUser.bookings = currentUser.bookings || [];
-            currentUser.bookings.unshift(data.booking);
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            
-            closePropertyModal();
-            showNotification(`Booking for ${property.title} confirmed!`, 'success');
-            
-            setTimeout(() => {
-                const confirmBox = document.createElement('div');
-                confirmBox.className = 'custom-confirm-box';
-                confirmBox.innerHTML = `
-                    <div class="custom-confirm-content">
-                        <p>Would you like to view your bookings?</p>
-                        <div class="custom-confirm-buttons">
-                            <button id="confirm-yes" class="auth-submit">Yes</button>
-                            <button id="confirm-no" class="auth-submit" style="background-color: var(--danger-color);">No</button>
-                        </div>
-                    </div>
-                `;
-                document.body.appendChild(confirmBox);
-
-                document.getElementById('confirm-yes').addEventListener('click', () => {
-                    document.body.removeChild(confirmBox);
-                    showView('profile');
-                });
-                document.getElementById('confirm-no').addEventListener('click', () => {
-                    document.body.removeChild(confirmBox);
-                });
-            }, 1000);
-
-        } else {
-            showNotification(data.message || 'Booking failed', 'error');
-        }
-
-    } catch (err) {
-        console.error('Booking Error:', err);
-        showNotification('Booking failed due to a server error', 'error');
-    }
+        document.getElementById('confirm-no').addEventListener('click', () => {
+            document.body.removeChild(confirmBox);
+        });
+    }, 1000);
 }
-async function toggleWishlist(propertyId) {
+
+function toggleWishlist(propertyId) {
     if (!currentUser) {
         showAuthModal('login');
         return;
     }
+    
+    // Find the property in the global properties array
+    const property = properties.find(p => p.id === propertyId);
+    if (!property) return; // Should not happen if data-id is correctly set
 
-    const token = localStorage.getItem('token');
-    if (!token) {
-        showAuthModal('login');
-        return;
+    // Ensure currentUser.wishlist is initialized
+    currentUser.wishlist = currentUser.wishlist || [];
+    
+    // Check if property is currently favorited by the current user
+    const isCurrentlyFavorite = currentUser.wishlist.includes(propertyId);
+
+    if (isCurrentlyFavorite) {
+        // Remove from wishlist
+        currentUser.wishlist = currentUser.wishlist.filter(id => id !== propertyId);
+        showNotification('Removed from wishlist', 'success');
+    } else {
+        // Add to wishlist
+        currentUser.wishlist.push(propertyId);
+        showNotification('Added to wishlist', 'success');
     }
     
-    try {
-        const res = await fetch(`https://stayfinder-1-cfu4.onrender.com/api/properties/${propertyId}/wishlist`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-            // Update the local user data with the new wishlist
-            currentUser.wishlist = data.wishlist;
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
-
-            const isFavorite = currentUser.wishlist.includes(propertyId.toString());
-            updateWishlistButton(propertyId, isFavorite);
-            
-            showNotification(data.message, 'success');
-
-        } else {
-            showNotification(data.message || 'Failed to update wishlist', 'error');
-        }
-    } catch (err) {
-        console.error('Wishlist Error:', err);
-        showNotification('Failed to update wishlist due to a server error', 'error');
+    // Update localStorage
+    const userIndex = users.findIndex(u => u.id === currentUser.id);
+    if (userIndex > -1) {
+        users[userIndex] = currentUser;
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
+    
+    // Update UI
+    updateWishlistButton(propertyId, !isCurrentlyFavorite);
+    
+    // If we're on wishlist view, re-render to reflect changes
+    if (currentView === 'wishlist') {
+        renderWishlist();
     }
 }
+
 
 function updateWishlistButton(propertyId, isFavorite) {
     // Select all wishlist buttons for this property ID (could be on results page or wishlist page)
