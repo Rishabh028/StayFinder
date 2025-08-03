@@ -8,7 +8,7 @@ const Property = require('../models/Property');
 // @access  Private
 const createBooking = async (req, res) => {
     const { propertyId, checkin, checkout, guests, nights, totalPrice } = req.body;
-    const userId = req.user._id;
+    const userId = req.user._id; // From auth middleware
 
     if (!propertyId || !checkin || !checkout || !guests || !nights || !totalPrice) {
         return res.status(400).json({ message: 'Please provide all booking details' });
@@ -20,12 +20,12 @@ const createBooking = async (req, res) => {
             return res.status(404).json({ message: 'Property not found' });
         }
 
-        // 1. Create the booking object first
+        // Create the booking
         const booking = await Booking.create({
             userId,
             propertyId,
             propertyTitle: property.title,
-            propertyImage: property.images[0],
+            propertyImage: property.images[0], // Use the first image for the booking record
             checkin: new Date(checkin),
             checkout: new Date(checkout),
             guests,
@@ -33,10 +33,10 @@ const createBooking = async (req, res) => {
             totalPrice,
         });
 
-        // 2. Then, use the created booking object to update the user's profile
+        // Add booking to user's profile
         const user = await User.findById(userId);
         if (user) {
-            user.bookings.unshift({ 
+            user.bookings.unshift({ // Add to the beginning of the array
                 propertyId: booking.propertyId,
                 propertyTitle: booking.propertyTitle,
                 propertyImage: booking.propertyImage,
