@@ -16,16 +16,19 @@ const getAllProperties = async (req, res) => {
         }
 
         if (propertyTypes) {
+            // Ensure propertyTypes is an array before using $in
             const typesArray = Array.isArray(propertyTypes) ? propertyTypes : propertyTypes.split(',');
             query.type = { $in: typesArray };
         }
 
         if (amenities) {
+            // Find properties that have ALL specified amenities
             const amenitiesArray = Array.isArray(amenities) ? amenities : amenities.split(',');
             query.amenities = { $all: amenitiesArray };
         }
 
         if (rating) {
+            // Convert rating string to number and apply logic similar to frontend
             const minRating = parseFloat(rating);
             if (minRating === 5) {
                 query.rating = { $gte: 4.8 };
@@ -34,6 +37,7 @@ const getAllProperties = async (req, res) => {
             } else if (minRating === 3) {
                 query.rating = { $gte: 3.0 };
             } else {
+                // If a specific rating is passed, ensure it's handled
                 query.rating = { $gte: minRating };
             }
         }
@@ -61,16 +65,15 @@ const getAllProperties = async (req, res) => {
 // @access  Public
 const getPropertyById = async (req, res) => {
     try {
-        // Assuming property IDs are numeric as per front-end sample data
-        const propertyId = parseInt(req.params.id);
-        const property = await Property.findOne({ id: propertyId }); // Find by 'id' field
+        const property = await Property.findById(req.params.id);
         if (!property) {
             return res.status(404).json({ message: 'Property not found' });
         }
         res.json(property);
     } catch (error) {
         console.error('Error fetching property by ID:', error.message);
-        if (error.name === 'CastError') { // This might still occur if req.params.id is not a valid number
+        // Handle CastError for invalid ObjectId
+        if (error.name === 'CastError') {
             return res.status(400).json({ message: 'Invalid property ID' });
         }
         res.status(500).json({ message: 'Server error' });
@@ -82,21 +85,21 @@ const getPropertyById = async (req, res) => {
 // @access  Private
 const addReview = async (req, res) => {
     const { rating, text } = req.body;
-    const propertyId = parseInt(req.params.id); // Parse to integer
-    const userId = req.user._id;
-    const userName = req.user.name;
+    const propertyId = req.params.id;
+    const userId = req.user._id; // From auth middleware
+    const userName = req.user.name; // From auth middleware
 
     if (!rating || !text) {
         return res.status(400).json({ message: 'Please provide rating and text for the review' });
     }
 
     try {
-        // Ensure 'property' is declared only once here
-        const property = await Property.findOne({ id: propertyId }); // Find by 'id' field
+        const property = await Property.findById(propertyId);
         if (!property) {
             return res.status(404).json({ message: 'Property not found' });
         }
 
+        // Check if user has already reviewed this property (optional, but good practice)
         const alreadyReviewed = property.userReviews.find(
             (r) => r.userId && r.userId.toString() === userId.toString()
         );
@@ -113,17 +116,16 @@ const addReview = async (req, res) => {
             date: new Date(),
         };
 
-        property.userReviews.unshift(review);
-        // Assuming property has an updateAverageRating method or similar logic
-        // If not, you might need to implement it here or in the model
-        // property.updateAverageRating(); // Uncomment if this method exists in your Property model
+        property.userReviews.unshift(review); // Add to the beginning
+        property.updateAverageRating(); // Recalculate average rating
 
         await property.save();
 
+        // Also add review to user's profile (optional, for user history)
         const user = await User.findById(userId);
         if (user) {
             user.reviews.unshift({
-                propertyId: property.id, // Use numeric ID
+                propertyId: property._id,
                 rating: Number(rating),
                 text,
                 date: new Date(),
@@ -145,8 +147,8 @@ const addReview = async (req, res) => {
 // @route   POST /api/properties/:id/wishlist
 // @access  Private
 const toggleWishlist = async (req, res) => {
-    const propertyId = parseInt(req.params.id); // Parse to integer
-    const userId = req.user._id;
+    const propertyId = req.params.id;
+    const userId = req.user._id; // From auth middleware
 
     try {
         const user = await User.findById(userId);
@@ -154,21 +156,23 @@ const toggleWishlist = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Ensure 'property' is declared only once here
-        const property = await Property.findOne({ id: propertyId }); // Find by 'id' field
+        const property = await Property.findById(propertyId);
         if (!property) {
             return res.status(404).json({ message: 'Property not found' });
         }
 
-        const propertyIdString = property.id.toString(); // Use the property's numeric ID as string
+        // Convert propertyId to string for comparison in array
+        const propertyIdString = propertyId.toString();
         const index = user.wishlist.findIndex(id => id.toString() === propertyIdString);
 
         if (index > -1) {
+            // Property is in wishlist, remove it
             user.wishlist.splice(index, 1);
             await user.save();
             res.json({ message: 'Property removed from wishlist', wishlist: user.wishlist });
         } else {
-            user.wishlist.push(property.id); // Push the numeric ID
+            // Property is not in wishlist, add it
+            user.wishlist.push(propertyId);
             await user.save();
             res.json({ message: 'Property added to wishlist', wishlist: user.wishlist });
         }
@@ -180,6 +184,9 @@ const toggleWishlist = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
+
+// Console log to verify function type before export
+console.log('propertyController.js: typeof addReview before export:', typeof addReview);
 
 module.exports = {
     getAllProperties,
