@@ -49,13 +49,13 @@ StayFinder is built with a modern web stack, separating the frontend and backend
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](stayfinder/images/homepage.png)
+![Home Page](stayfinder/images/img.home.png,stayfinder/images/img.home2.png)
 
 ### Property Details & Booking
-![Property Modal](stayfinder/images/details.png)
+![Property Modal](stayfinder/images/img.detail.png,stayfinder/images/img.detail2.png)
 
 ### Light Mode
-![Light Mode](stayfinder/images/lightmode.png)
+![Light Mode](stayfinder/images/img.light.png,stayfinder/images/img.light2.png)
 
 ---
 
