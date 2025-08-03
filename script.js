@@ -984,13 +984,12 @@ async function handleLogin(e) {
         });
         const data = await res.json();
         if (res.ok) {
-            // Save token and user info
             localStorage.setItem('token', data.token);
             localStorage.setItem('currentUser', JSON.stringify(data.user));
             closeAuthModal();
             updateUserInterface();
             showNotification('Welcome back!', 'success');
-            showView('homepage'); // Redirect to homepage after login
+            showView('homepage');
         } else {
             showNotification(data.message || 'Login failed', 'error');
         }
@@ -998,6 +997,7 @@ async function handleLogin(e) {
         showNotification('Server error', 'error');
     }
 }
+
 
 async function handleRegister(e) {
     e.preventDefault();
@@ -1009,7 +1009,7 @@ async function handleRegister(e) {
         const res = await fetch('https://stayfinder-1-cfu4.onrender.com/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, password, role: "Student" })
+            body: JSON.stringify({ name, email, password }) // Removed role
         });
         const data = await res.json();
         if (res.ok) {
@@ -1018,7 +1018,7 @@ async function handleRegister(e) {
             closeAuthModal();
             updateUserInterface();
             showNotification('Account created successfully!', 'success');
-            showView('homepage'); // Redirect to homepage after registration
+            showView('homepage');
         } else {
             showNotification(data.message || 'Registration failed', 'error');
         }
@@ -1402,11 +1402,9 @@ async function handleBooking(propertyId) {
 }
 
 async function toggleWishlist(propertyId) {
-    // Check if the user is logged in
     const token = localStorage.getItem('token');
     if (!token) {
         showAuthModal('login');
-        showNotification('Please log in to add to your wishlist.', 'error');
         return;
     }
     
