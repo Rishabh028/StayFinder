@@ -9,40 +9,40 @@
 
 ## ⚙️Features
 
-* **Advanced Property Search**: Filter properties by location, price range, property type, amenities, and rating.
-* **Dynamic Property Listings**: View properties in both grid and list layouts.
-* **Detailed Property Pages**: Access comprehensive information for each property, including descriptions, amenities, host details, and a map.
-* **User Authentication**: Securely sign up and log in to manage your profile.
-* **Wishlist Functionality**: Save your favorite properties for future reference.
-* **Booking Management**: Book stays with specified check-in/check-out dates and guest counts.
-* **User Reviews**: Add and view reviews for properties.
-* **Responsive Design**: Optimized for seamless experience across various devices (desktop, tablet, mobile).
-* **Dark Mode Toggle**: Switch between light and dark themes for comfortable viewing.
-* **Interactive Homepage Carousel**: Visually engaging background images on the homepage.
+* ✅**Advanced Property Search**: Filter properties by location, price range, property type, amenities, and rating.
+* ✅**Dynamic Property Listings**: View properties in both grid and list layouts.
+* ✅**Detailed Property Pages**: Access comprehensive information for each property, including descriptions, amenities, host details, and a map.
+* ✅**User Authentication**: Securely sign up and log in to manage your profile.
+* ✅**Wishlist Functionality**: Save your favorite properties for future reference.
+* ✅**Booking Management**: Book stays with specified check-in/check-out dates and guest counts.
+* ✅**User Reviews**: Add and view reviews for properties.
+* ✅**Responsive Design**: Optimized for seamless experience across various devices (desktop, tablet, mobile).
+* ✅**Dark Mode Toggle**: Switch between light and dark themes for comfortable viewing.
+* ✅**Interactive Homepage Carousel**: Visually engaging background images on the homepage.
 
-##🛠️ Technologies Used
+## 🛠️ Technologies Used
 
 StayFinder is built with a modern web stack, separating the frontend and backend for scalability and maintainability.
 
 ### 🛠️Frontend
 
-* **HTML5**: Structure of the web pages.
-* **CSS3**: Custom styling for a clean and intuitive UI, including responsive design.
-* **JavaScript (ES6+)**: Core logic, DOM manipulation, and API interactions.
-* **Font Awesome**: Icons for a richer user interface.
-* **Flatpickr**: Lightweight date picker for easy date selection.
-* **Leaflet.js**: Interactive maps to display property locations.
+*✅ **HTML5**: Structure of the web pages.
+*✅ **CSS3**: Custom styling for a clean and intuitive UI, including responsive design.
+*✅ **JavaScript (ES6+)**: Core logic, DOM manipulation, and API interactions.
+*✅ **Font Awesome**: Icons for a richer user interface.
+*✅ **Flatpickr**: Lightweight date picker for easy date selection.
+*✅ **Leaflet.js**: Interactive maps to display property locations.
 
 ### 🛠️Backend
 
-* **Node.js**: JavaScript runtime environment.
-* **Express.js**: Fast, unopinionated, minimalist web framework for Node.js.
-* **Mongoose**: MongoDB object data modeling (ODM) for Node.js.
-* **MongoDB Atlas**: Cloud-hosted NoSQL database for data storage.
-* **JSON Web Tokens (JWT)**: For secure user authentication.
-* **Bcrypt.js**: For hashing user passwords securely.
-* **CORS**: Middleware for enabling Cross-Origin Resource Sharing.
-* **Dotenv**: For managing environment variables.
+*✅ **Node.js**: JavaScript runtime environment.
+*✅ **Express.js**: Fast, unopinionated, minimalist web framework for Node.js.
+*✅ **Mongoose**: MongoDB object data modeling (ODM) for Node.js.
+*✅ **MongoDB Atlas**: Cloud-hosted NoSQL database for data storage.
+*✅ **JSON Web Tokens (JWT)**: For secure user authentication.
+*✅ **Bcrypt.js**: For hashing user passwords securely.
+*✅ **CORS**: Middleware for enabling Cross-Origin Resource Sharing.
+*✅ **Dotenv**: For managing environment variables.
 
 ---
 
@@ -149,7 +149,7 @@ Before you begin, ensure you have the following installed:
 
 ---
 
-##🎈 Deployment
+## 🎈 Deployment
 
 StayFinder is designed for easy deployment of its decoupled frontend and backend.
 
@@ -199,7 +199,7 @@ Contributions are welcome! If you have suggestions for improvements or find any 
 5.  Push to the branch (`git push origin feature/your-feature-name`).
 6.  Open a Pull Request.
 
-##🪪 License
+## 🪪 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
 
