@@ -1,4 +1,4 @@
-# StayFinder 🏠
+ # StayFinder 🏠
 
 ![StayFinder Banner](stayfinder/images/logo.png)
 
@@ -35,14 +35,14 @@ StayFinder is built with a modern web stack, separating the frontend and backend
 
 ### 🛠️Backend
 
-*✅ **Node.js**: JavaScript runtime environment.
-*✅ **Express.js**: Fast, unopinionated, minimalist web framework for Node.js.
-*✅ **Mongoose**: MongoDB object data modeling (ODM) for Node.js.
-*✅ **MongoDB Atlas**: Cloud-hosted NoSQL database for data storage.
-*✅ **JSON Web Tokens (JWT)**: For secure user authentication.
-*✅ **Bcrypt.js**: For hashing user passwords securely.
-*✅ **CORS**: Middleware for enabling Cross-Origin Resource Sharing.
-*✅ **Dotenv**: For managing environment variables.
+* ✅**Node.js**: JavaScript runtime environment.
+* ✅**Express.js**: Fast, unopinionated, minimalist web framework for Node.js.
+* ✅**Mongoose**: MongoDB object data modeling (ODM) for Node.js.
+* ✅**MongoDB Atlas**: Cloud-hosted NoSQL database for data storage.
+* ✅**JSON Web Tokens (JWT)**: For secure user authentication.
+* ✅**Bcrypt.js**: For hashing user passwords securely.
+* ✅**CORS**: Middleware for enabling Cross-Origin Resource Sharing.
+* ✅**Dotenv**: For managing environment variables.
 
 ---
 
