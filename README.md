@@ -26,12 +26,12 @@ StayFinder is built with a modern web stack, separating the frontend and backend
 
 ### 🛠️Frontend
 
-*✅ **HTML5**: Structure of the web pages.
-*✅ **CSS3**: Custom styling for a clean and intuitive UI, including responsive design.
-*✅ **JavaScript (ES6+)**: Core logic, DOM manipulation, and API interactions.
-*✅ **Font Awesome**: Icons for a richer user interface.
-*✅ **Flatpickr**: Lightweight date picker for easy date selection.
-*✅ **Leaflet.js**: Interactive maps to display property locations.
+* ✅**HTML5**: Structure of the web pages.
+* ✅**CSS3**: Custom styling for a clean and intuitive UI, including responsive design.
+* ✅**JavaScript (ES6+)**: Core logic, DOM manipulation, and API interactions.
+* ✅**Font Awesome**: Icons for a richer user interface.
+* ✅**Flatpickr**: Lightweight date picker for easy date selection.
+* ✅**Leaflet.js**: Interactive maps to display property locations.
 
 ### 🛠️Backend
 
