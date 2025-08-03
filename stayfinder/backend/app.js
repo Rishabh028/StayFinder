@@ -27,7 +27,7 @@ const bookingRoutes = require('./routes/booking');
 
 // Use Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/properties', propertyRoutes); // ADD THIS LINE
+app.use('/api/property', propertyRoutes); // ADD THIS LINE
 app.use('/api/bookings', bookingRoutes);
 
 // Basic route for testing
