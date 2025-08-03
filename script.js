@@ -1416,15 +1416,14 @@ async function toggleWishlist(propertyId) {
     try {
         const res = await fetch(`https://stayfinder-1-cfu4.onrender.com/api/properties/${propertyId}/wishlist`, {
             method: 'POST',
+            // Remove the 'Content-Type' header as there is no body
             headers: {
-                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             }
         });
 
         const data = await res.json();
-
-        if (res.ok) {
+            if (res.ok) {
             // Update the local user data with the new wishlist
             currentUser.wishlist = data.wishlist;
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
