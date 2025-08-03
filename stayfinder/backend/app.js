@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: ['https://zippy-gumdrop-c1bd83.netlify.app'] })); // Enable CORS for all routes
+app.use(cors({ origin: 'https://zippy-gumdrop-c1bd83.netlify.app' }));
 app.use(express.json()); // Body parser for JSON requests
 
 // Database Connection
@@ -22,10 +22,12 @@ mongoose.connect(mongoURI)
 
 // Import Routes
 const authRoutes = require('./routes/auth');
+const property = require('./routes/property'); // ADD THIS LINE
 const bookingRoutes = require('./routes/booking');
 
 // Use Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/properties', property); // ADD THIS LINE
 app.use('/api/bookings', bookingRoutes);
 
 // Basic route for testing
