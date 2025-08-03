@@ -6,6 +6,11 @@
 
 ---
 
+## 🚀 Live Demo
+
+👉 [View StayFinder on GitHub Pages](https://zippy-gumdrop-c1bd83.netlify.app/)
+---
+
 
 ## ⚙️Features
 
@@ -57,11 +62,6 @@ StayFinder is built with a modern web stack, separating the frontend and backend
 ### Light Mode
 ![Light Mode](images/img.light.png)![light Mode](images/img.light2.png)
 
----
-
-## 🚀 Live Demo
-
-👉 [View StayFinder on GitHub Pages](https://zippy-gumdrop-c1bd83.netlify.app/)
 
 ---
 
