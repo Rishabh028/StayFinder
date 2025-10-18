@@ -2,7 +2,7 @@
 
   <!-- Animated Logo/Banner -->
   <!-- Replace this with a cool GIF of your app in action! -->
-  <img src="https://raw.githubusercontent.com/Rishabh028/StayFinder/main/public/assets/images/Screenshot%202024-07-20%20142820.png" alt="StayFinder Pro Showcase" width="800"/>
+  <img src="public/assets/images/Screenshot 2025-10-18 231032.png" alt="StayFinder Pro Showcase" width="300"/>
 
   <h1><b>StayFinder Pro</b></h1>
 
