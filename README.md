@@ -1,106 +1,126 @@
-# React
+# StayFinder Pro
 
-A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
+**Live Demo: [https://stay-finder-75qt.vercel.app/](https://stay-finder-75qt.vercel.app/)**
 
-## 🚀 Features
+StayFinder Pro is a modern, full-featured web application designed to streamline the process of finding and booking hotel accommodations. It provides a seamless user experience with a rich interface, robust user authentication, and dedicated dashboards for users, property owners, and administrators.
 
-- **React 18** - React version with improved rendering and concurrent features
-- **Vite** - Lightning-fast build tool and development server
-- **Redux Toolkit** - State management with simplified Redux setup
-- **TailwindCSS** - Utility-first CSS framework with extensive customization
-- **React Router v6** - Declarative routing for React applications
-- **Data Visualization** - Integrated D3.js and Recharts for powerful data visualization
-- **Form Management** - React Hook Form for efficient form handling
-- **Animation** - Framer Motion for smooth UI animations
-- **Testing** - Jest and React Testing Library setup
+![StayFinder Pro Screenshot](https://raw.githubusercontent.com/Rishabh028/StayFinder/main/public/assets/images/Screenshot%202024-07-20%20142820.png)
 
-## 📋 Prerequisites
+---
 
-- Node.js (v14.x or higher)
-- npm or yarn
+## Table of Contents
 
-## 🛠️ Installation
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation & Setup](#installation--setup)
+- [Project Structure](#project-structure)
+- [Deployment](#deployment)
+- [Contact](#contact)
 
-1. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-   
-2. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
+---
 
-## 📁 Project Structure
+## Key Features
+
+-   **User Authentication**: Secure sign-up and sign-in functionality using Supabase for authentication.
+-   **Dynamic Hotel Search**: A powerful search interface to find hotels based on various criteria.
+-   **Detailed Hotel Pages**: Comprehensive details for each hotel, including amenities, photo galleries, and reviews.
+-   **User Dashboard**: A personalized dashboard for users to view their total bookings, nights stayed, cities visited, and loyalty points.
+-   **Booking Management**: A streamlined booking flow for users to reserve rooms.
+-   **Wishlist**: Allows users to save their favorite hotels for future reference.
+-   **Admin Dashboard**: A control panel for administrators to manage bookings, users, and site content.
+-   **Owner Portal**: A dedicated portal for hotel owners to manage their property listings.
+-   **Responsive Design**: Fully responsive UI built with Tailwind CSS, ensuring a great experience on all devices.
+
+---
+
+## Tech Stack
+
+-   **Frontend**: [React](https://reactjs.org/) (with Vite)
+-   **Backend & Auth**: [Supabase](https://supabase.io/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **Routing**: [React Router](https://reactrouter.com/)
+-   **Linting**: [ESLint](https://eslint.org/)
+-   **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## Getting Started
+
+Follow these instructions to set up and run the project on your local machine for development and testing purposes.
+
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/) (v18.x or later)
+-   [npm](https://www.npmjs.com/) (or yarn/pnpm)
+-   A Supabase account to get your API keys.
+
+### Installation & Setup
+
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/Rishabh028/StayFinder.git
+    cd StayFinder
+    ```
+
+2.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a `.env` file in the root of the project and add your Supabase credentials. You can get these from your Supabase project dashboard under `Settings > API`.
+
+    ```env
+    # .env
+    VITE_SUPABASE_URL="YOUR_SUPABASE_URL"
+    VITE_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
+    ```
+
+4.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+---
+
+## Project Structure
+
+The project follows a feature-based folder structure, making it scalable and easy to navigate.
 
 ```
-react_app/
-├── public/             # Static assets
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles and Tailwind configuration
-│   ├── App.jsx         # Main application component
-│   ├── Routes.jsx      # Application routes
-│   └── index.jsx       # Application entry point
-├── .env                # Environment variables
-├── index.html          # HTML template
-├── package.json        # Project dependencies and scripts
-├── tailwind.config.js  # Tailwind CSS configuration
-└── vite.config.js      # Vite configuration
+/src
+├── assets/         # Static assets like images
+├── components/     # Global, reusable React components (Appicon, Button, etc.)
+├── context/        # React Context providers (e.g., AuthContext)
+├── lib/            # External library configurations (e.g., supabaseClient.js)
+├── pages/          # Top-level page components, each with its own sub-components
+│   ├── sign-in/
+│   ├── user-dashboard/
+│   └── ...
+├── styles/         # Global CSS and Tailwind styles
+├── utils/          # Utility functions (e.g., cn for classnames)
+├── App.jsx         # Main App component
+├── index.jsx       # Application entry point
+└── Routes.jsx      # Application routing configuration
 ```
 
-## 🧩 Adding Routes
+---
 
-To add new routes to the application, update the `Routes.jsx` file:
+## Deployment
 
-```jsx
-import { useRoutes } from "react-router-dom";
-import HomePage from "pages/HomePage";
-import AboutPage from "pages/AboutPage";
+This project is deployed on **Vercel**. The deployment process is automated via Git integration.
 
-const ProjectRoutes = () => {
-  let element = useRoutes([
-    { path: "/", element: <HomePage /> },
-    { path: "/about", element: <AboutPage /> },
-    // Add more routes as needed
-  ]);
+-   **Continuous Deployment**: Every push to the `main` branch triggers a new deployment.
+-   **Environment Variables**: The Supabase URL and Key are configured in the Vercel project settings.
+-   **Build Configuration**: Vercel automatically uses the `npm run build` command and serves the static files from the `build/` directory.
 
-  return element;
-};
-```
+---
 
-## 🎨 Styling
+## Contact
 
-This project uses Tailwind CSS for styling. The configuration includes:
+Rishabh - [@Rishabh](https://www.linkedin.com/in/rishabh-sharma-028rs/)
 
-- Forms plugin for form styling
-- Typography plugin for text styling
-- Aspect ratio plugin for responsive elements
-- Container queries for component-specific responsive design
-- Fluid typography for responsive text
-- Animation utilities
-
-## 📱 Responsive Design
-
-The app is built with responsive design using Tailwind CSS breakpoints.
-
-
-## 📦 Deployment
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-## 🙏 Acknowledgments
-
-- Powered by React and Vite
-- Styled with Tailwind CSS
-
-Built with ❤️ on by Rishabh 
+Project Link: [https://github.com/Rishabh028/StayFinder](https://github.com/Rishabh028/StayFinder)
