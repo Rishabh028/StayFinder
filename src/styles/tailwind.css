@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core System Colors */
+    --color-background: #FEFEFE; /* white */
+    --color-foreground: #1E293B; /* slate-800 */
+    --color-border: #E2E8F0; /* slate-200 */
+    --color-input: #F8FAFC; /* slate-50 */
+    --color-ring: #2563EB; /* blue-600 */
+    
+    /* Card & Surface Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1E293B; /* slate-800 */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1E293B; /* slate-800 */
+    --color-muted: #F8FAFC; /* slate-50 */
+    --color-muted-foreground: #64748B; /* slate-500 */
+    
+    /* Brand Colors */
+    --color-primary: #2563EB; /* blue-600 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #0F172A; /* slate-900 */
+    --color-secondary-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Action Colors */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    --color-accent: #F59E0B; /* amber-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Status Colors */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Surface Variations */
+    --color-surface: #F8FAFC; /* slate-50 */
+    --color-text-primary: #1E293B; /* slate-800 */
+    --color-text-secondary: #64748B; /* slate-500 */
+    
+    /* Radius */
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+  
+  .font-accent {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  /* Custom shadow system for brand elevation */
+  .shadow-brand-sm {
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+  }
+  
+  .shadow-brand-md {
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
+  }
+  
+  .shadow-brand-lg {
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.2);
+  }
+  
+  /* Smooth transitions for brand interactions */
+  .transition-brand {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Brand-specific hover effects */
+  .hover-lift {
+    @apply transition-brand;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    @apply shadow-brand-md;
+  }
+  
+  /* Premium backdrop blur for overlays */
+  .backdrop-brand {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+@layer utilities {
+  /* Brand spacing system based on 8px grid */
+  .space-brand-xs { @apply space-y-2; }
+  .space-brand-sm { @apply space-y-3; }
+  .space-brand-md { @apply space-y-5; }
+  .space-brand-lg { @apply space-y-8; }
+  .space-brand-xl { @apply space-y-13; }
+  
+  /* Typography hierarchy utilities */
+  .text-brand-hero {
+    @apply text-5xl font-bold text-foreground leading-tight;
+  }
+  
+  .text-brand-heading {
+    @apply text-3xl font-semibold text-foreground leading-snug;
+  }
+  
+  .text-brand-subheading {
+    @apply text-xl font-medium text-foreground leading-relaxed;
+  }
+  
+  .text-brand-body {
+    @apply text-base font-normal text-foreground leading-relaxed;
+  }
+  
+  .text-brand-caption {
+    @apply text-sm font-normal text-muted-foreground leading-normal;
+  }
+  
+  /* Brand-specific button styles */
+.btn-brand-primary  {
+    @apply bg-primary text-primary-foreground transition-brand;
+  }
+.btn-brand-accent  {
+    @apply bg-accent text-accent-foreground transition-brand;
+  }
+  
+  /* Grid system for consistent layouts */
+  .grid-brand-hero {
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .grid-brand-hero {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+}
